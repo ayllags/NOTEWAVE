@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício: Leitura de Notas (Clave de Sol)</title>
+    <link rel="stylesheet" href="../css/style-sol.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Cabeçalho do aplicativo -->
+        <header class="app-header">
+            <a href="trilha.html" class="btn-back" style="text-decoration: none; display: inline-block;">← Voltar para a trilha</a>
+            <button class="btn-help" id="btnHelp">💡 Dicas</button>
+        </header>
+
+        <main class="main-content">
+            <!-- Seção principal do exercício -->
+            <section class="exercise-section">
+                <!-- Identificação dinâmica -->
+                <div class="lesson-number" id="lessonNumber">Lição...</div>
+                <h1 class="title" id="lessonTitle">Clave de Sol</h1>
+                <p class="instruction">Ouça o áudio e identifique a nota correspondente.</p>
+                
+                <!-- Caixa de dica reflexiva -->
+                <div id="helpBox" class="help-box" style="display: none;">
+                    💡 <strong>Dica:</strong> <span id="helpText"></span>
+                </div>
+
+                <!-- Pentagrama musical estrutural -->
+                <div class="staff-container">
+                    <div class="clef">𝄞</div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div id="noteElement" class="note"></div>
+                </div>
+
+                <!-- Player de áudio integrado -->
+                <div class="audio-player">
+                    <button class="play-btn" id="playBtn"><span class="play-icon">▶</span></button>
+                    <div class="audio-wave">
+                        <div class="wave-line"></div>
+                    </div>
+                    <span class="audio-time" id="audioTime">0:00 / 0:00</span>
+                    <audio id="audioTrack" src=""></audio>
+                </div>
+
+                <!-- Botões puros, o clique será injetado pelo JS -->
+                <div class="options-container" id="optionsContainer">
+                    <button class="option-btn"></button>
+                    <button class="option-btn"></button>
+                    <button class="option-btn"></button>
+                    <button class="option-btn"></button>
+                </div>
+
+                <!-- Painel de Feedback dinâmico -->
+                <div class="feedback-panel" id="feedbackPanel" style="display: none;">
+                    <div class="feedback-text">
+                        <span class="feedback-icon" id="feedbackIcon"></span>
+                        <div>
+                            <strong id="feedbackTitle"></strong>
+                            <p id="feedbackMessage"></p>
+                        </div>
+                    </div>
+                    <button class="next-btn" id="actionBtn">Próxima</button>
+                </div>
+            </section>
+
+            <!-- Barra lateral de desempenho -->
+            <aside class="performance-section">
+                <h2 class="perf-title">Desempenho</h2>
+                <div class="stat-group">
+                    <span class="stat-label">Acertos</span>
+                    <span class="stat-value success-text" id="correctCount">0</span>
+                </div>
+
+                <div class="stat-group">
+                    <span class="stat-label">Erros</span>
+                    <span class="stat-value danger-text" id="wrongCount">0</span>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-ring" id="progressRing" style="--percent: 0;">
+                        <div class="progress-inner">
+                            <span class="percentage-value" id="percentageValue">0%</span>
+                        </div>
+                    </div>
+                    <p class="progress-label">de aproveitamento</p>
+                    <button id="resetBtn">Reiniciar Progresso</button>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Scripts modulares para a Clave de Sol -->
+    <script src="../js/licoes-sol-data.js"></script>
+    <script src="../js/atividades-sol.js"></script>
+</body>
+</html>
