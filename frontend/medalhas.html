@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteWave - Minhas Medalhas</title>
+
+    <link rel="stylesheet" href="../css/medalhas.css">
+</head>
+
+<script>
+    const cards = document.querySelectorAll(".card-medalha");
+    const modal = document.getElementById("modalConquista");
+    const conteudoModal = document.getElementById("conteudoModal");
+    const btnFechar = document.getElementById("btnFecharModal");
+    
+    cards.forEach(card => {
+    
+        card.addEventListener("click", () => {
+    
+            const status = card.dataset.status;
+            const titulo = card.dataset.titulo;
+    
+            if(status === "desbloqueado"){
+    
+                conteudoModal.innerHTML = `
+                    <div class="modal-header">
+    
+                        <span class="tag-sucesso">
+                            🎵 Conquista Desbloqueada
+                        </span>
+    
+                        <h2>${titulo}</h2>
+    
+                    </div>
+    
+                    <div class="estrelas">
+                        ⭐ ⭐ ⭐
+                    </div>
+    
+                    <div class="modal-secao">
+                        <h3>🏆 O que você conquistou?</h3>
+    
+                        <p>${card.dataset.conquistou}</p>
+                    </div>
+    
+                    <div class="modal-secao">
+    
+                        <h3>📖 O que você aprendeu?</h3>
+    
+                        <p>${card.dataset.aprendeu}</p>
+    
+                    </div>
+    
+                    <div class="modal-secao incentivo">
+    
+                        <p>
+                            💙
+                            <strong>
+                                ${card.dataset.incentivo}
+                            </strong>
+                        </p>
+    
+                    </div>
+                `;
+    
+            }
+    
+            else{
+    
+                conteudoModal.innerHTML = `
+    
+                    <div class="modal-header">
+    
+                        <span class="tag-bloqueado">
+    
+                            🔒 Medalha Bloqueada
+    
+                        </span>
+    
+                        <h2>${titulo}</h2>
+    
+                    </div>
+    
+                    <div class="estrelas bloqueadas">
+    
+                        ☆ ☆ ☆
+    
+                    </div>
+    
+                    <div class="modal-secao">
+    
+                        <h3>Você ainda não conquistou esta medalha.</h3>
+    
+                        <p>
+                            Continue realizando as atividades do NoteWave para desbloqueá-la.
+                        </p>
+    
+                    </div>
+    
+                    <div class="modal-secao incentivo">
+    
+                        <p>
+    
+                            🎵 Cada músico começou exatamente onde você está agora.
+                            Continue praticando e essa medalha será sua!
+    
+                        </p>
+    
+                    </div>
+    
+                `;
+    
+            }
+    
+            modal.classList.add("visivel");
+    
+        });
+    
+    });
+    
+    btnFechar.addEventListener("click", () => {
+    
+        modal.classList.remove("visivel");
+    
+    });
+    
+    modal.addEventListener("click", (e)=>{
+    
+        if(e.target === modal){
+    
+            modal.classList.remove("visivel");
+    
+        }
+    
+    });
+    
+    document.addEventListener("keydown",(e)=>{
+    
+        if(e.key==="Escape"){
+    
+            modal.classList.remove("visivel");
+    
+        }
+    
+    });
+    </script>
+    
+    </body>
+    </html>
+
+<body>
+
+<div class="container">
+
+    <a href="perfil.html" class="btn-voltar">← Voltar para o Perfil</a>
+
+    <header class="page-header">
+        <h1>🎵 Suas Conquistas Musicais</h1>
+        <p>Acompanhe todas as medalhas conquistadas durante sua jornada no NoteWave.</p>
+    </header>
+
+    <div class="grid-medalhas">
+
+        <!-- Medalha 1 -->
+        <div class="card-medalha ativa"
+            data-status="desbloqueado"
+            data-titulo="Clave de Sol"
+            data-conquistou="Você dominou a leitura das notas agudas!"
+            data-aprendeu="Leitura da pauta, identificação das notas e localização da Clave de Sol."
+            data-incentivo="Continue praticando! Grandes músicos começaram exatamente assim.">
+
+            <div class="icone-medalha">
+
+                <svg viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M52.3,16.5 C50.2,16.2 48.1,17.4 47.3,19.5 C45.2,25.2 41.8,36.7 44.1,49.2 C40.1,51.8 34.6,56.3 34.6,64.2 C34.6,73.5 41.8,79.8 49.8,79.8 C58.2,79.8 64.5,73.1 64.5,63.8 C64.5,56.5 59.8,50.8 54.3,47.9 C52.9,40.1 54.2,29.8 56.8,21.3 C57.3,19.6 56.4,17.8 54.7,17.1 C53.9,16.7 53.1,16.5 52.3,16.5 Z"/>
+                </svg>
+
+            </div>
+
+            <h3>Clave de Sol</h3>
+            <span class="status">Desbloqueado</span>
+
+        </div>
+
+        <!-- Medalha 2 -->
+
+        <div class="card-medalha ativa"
+
+            data-status="desbloqueado"
+            data-titulo="Clave de Fá"
+            data-conquistou="Você conquistou a leitura dos sons graves."
+            data-aprendeu="Reconhecimento das notas da Clave de Fá."
+            data-incentivo="Seu conhecimento musical está ficando cada vez mais completo!">
+
+            <div class="icone-medalha">
+
+                <svg viewBox="0 0 100 100" fill="currentColor">
+                    <circle cx="50" cy="50" r="22"/>
+                </svg>
+
+            </div>
+
+            <h3>Clave de Fá</h3>
+            <span class="status">Desbloqueado</span>
+
+        </div>
+
+        <!-- Medalha 3 -->
+
+        <div class="card-medalha ativa"
+
+            data-status="desbloqueado"
+            data-titulo="Nota por Nota"
+            data-conquistou="Você completou uma atividade sem errar nenhuma nota."
+            data-aprendeu="Precisão, concentração e leitura musical."
+            data-incentivo="A prática leva à perfeição. Continue treinando!">
+
+            <div class="icone-medalha">
+
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2v13.55c-.63-.35-1.39-.55-2.2-.55-2.35 0-4.25 1.9-4.25 4.25S7.45 23.5 9.8 23.5s4.25-1.9 4.25-4.25V6h4V2z"/>
+                </svg>
+
+            </div>
+
+            <h3>Nota por Nota</h3>
+            <span class="status">Desbloqueado</span>
+
+        </div>
+
+        <!-- Medalha Bloqueada -->
+
+        <div class="card-medalha bloqueada"
+
+            data-status="bloqueado"
+            data-titulo="Ritmo e Pulsação">
+
+            <div class="icone-medalha">
+
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/>
+                </svg>
+
+            </div>
+
+            <h3>Ritmo e Pulsação</h3>
+            <span class="status">Bloqueado</span>
+
+        </div>
+
+        <!-- Medalha Bloqueada -->
+
+        <div class="card-medalha bloqueada"
+
+            data-status="bloqueado"
+            data-titulo="Leitura Avançada">
+
+            <div class="icone-medalha">
+
+                <!-- Exemplo para a Clave de Sol -->
+<div class="card-medalha">
+    <div class="container-icone">
+        <!-- Substitua o círculo antigo pela imagem da clave -->
+        <img src="../assets/clave-sol.svg" alt="Clave de Sol" class="icone-musical">
+    </div>
+    <h3>Clave de Sol</h3>
+    <span class="status">Desbloqueado</span>
+</div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Modal -->
+
+<div class="modal-overlay" id="modalConquista">
+
+    <div class="modal-balao">
+
+        <button id="btnFecharModal" class="btn-fechar">
+            &times;
+        </button>
+
+        <div id="conteudoModal">
+
+        </div>
+
+    </div>
+
+</div>
+

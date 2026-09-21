@@ -1,0 +1,146 @@
+/* Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    display: inline-block;
+    text-decoration: none;
+    color: #0d2c6c;
+    font-weight: 600;
+    margin-bottom: 30px;
+    transition: transform 0.2s;
+}
+
+.btn-voltar:hover {
+    transform: translateX(-5px);
+}
+
+.page-header h1 {
+    color: #0d2c6c;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #64748b;
+    margin-bottom: 40px;
+}
+
+/* Grid de Medalhas alinhadas lado a lado */
+.grid-medalhas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: flex-start;
+}
+
+.card-medalha {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px 15px;
+    text-align: center;
+    width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Tamanho Ampliado do Círculo da Medalha */
+.icone-medalha {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Tamanho Ampliado do Desenho Interno */
+.icone-medalha svg {
+    width: 44px;
+    height: 44px;
+    display: block;
+}
+
+/* Estilo das Medalhas DESBLOQUEADAS (Azul Escuro com Aro Duplo) */
+.card-medalha.ativa .icone-medalha {
+    background-color: #0d2c6c;
+    color: #ffffff;
+    border: 4px solid #0d2c6c;
+    box-shadow: inset 0 0 0 2.5px #ffffff; /* Linha branca interna fina do protótipo */
+}
+
+.card-medalha.ativa h3 {
+    color: #1e293b;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.card-medalha.ativa .status {
+    color: #10b981;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Estilo das Medalhas BLOQUEADAS (Cinza Claro) */
+.card-medalha.bloqueada .icone-medalha {
+    background-color: #f1f5f9;
+    color: #cbd5e1;
+    border: 4px solid #f1f5f9;
+    box-shadow: inset 0 0 0 2.5px #ffffff; /* Mantém o aro sutil de fundo */
+}
+
+.card-medalha.bloqueada h3 {
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.card-medalha.bloqueada .status {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+}
+
+/* Configuração base para os cards permitirem transição suave */
+.card-medalha {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efeito de passar o mouse nas medalhas DESBLOQUEADAS (Ativas) */
+.card-medalha.ativa:hover {
+    transform: translateY(-8px); /* Faz o card subir um pouco */
+    border-color: #007bff; /* Altera a borda para azul (ajuste a cor se preferir) */
+    
+    /* Cria o efeito de brilho azul neon em volta do card */
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4), 
+                0 0 15px rgba(0, 123, 255, 0.2); 
+}
+
+/* Opcional: Se quiser que as bloqueadas também mexam mas com brilho discreto ou sem brilho */
+.card-medalha.bloqueada:hover {
+    transform: translateY(-4px);
+}
+
