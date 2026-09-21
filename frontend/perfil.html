@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoteWave - Perfil</title>
+
+  <!-- Ícones Phosphor -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Fonte Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Cropper.js CSS (Para o crop da foto de perfil) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+
+  <!-- CSS do Perfil -->
+  <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar / Menu Lateral -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#002b7a" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17C6 19.21 7.79 21 10 21C12.21 21 14 19.21 14 17V7H18V3H12Z"/>
+        </svg>
+        <span class="logo-text">NoteWave</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">
+          <i class="ph ph-user"></i>
+          <span>Perfil</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="ph ph-book-open"></i>
+          <span>Trilha de Aulas</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="ph ph-medal"></i>
+          <span>Medalhas</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="ph ph-chart-bar"></i>
+          <span>Progresso</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="ph ph-gear"></i>
+          <span>Configurações</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="nav-item logout">
+          <i class="ph ph-sign-out"></i>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+      <div class="profile-card">
+        
+        <!-- Cabeçalho do Usuário -->
+        <header class="profile-header">
+          <div class="welcome-box">
+            <h1>Olá, <span id="userName">Usuário</span>! 👋</h1>
+            <p>Continue sua jornada musical.</p>
+          </div>
+
+          <!-- Componente de Avatar / Foto -->
+          <div class="avatar-container" onclick="document.getElementById('avatarInput').click();" title="Clique para alterar a foto">
+            <img id="avatarImage" src="https://via.placeholder.com/150/003399/ffffff?text=Foto" alt="Foto de Perfil" />
+            <div class="avatar-overlay">
+              <i class="ph ph-camera"></i>
+            </div>
+          </div>
+          <!-- Input oculto para carregar a imagem -->
+          <input type="file" id="avatarInput" accept="image/*" style="display: none;" />
+        </header>
+
+        <!-- Grid de Estatísticas -->
+        <div class="stats-grid">
+          
+          <!-- Card: Sequência de Estudos -->
+          <div class="stat-card streak-card">
+            <h3>Sequência de Estudos</h3>
+            <div class="streak-count">
+              <span class="flame-icon">🔥</span>
+              <strong id="streakDays">0</strong>
+              <span class="days-label">dias</span>
+            </div>
+            <p class="streak-subtext">Continue assim!</p>
+
+            <!-- Dias da Semana (Começam cinza por padrão) -->
+            <div class="week-days">
+              <div class="day-item" id="day-seg">
+                <div class="day-circle"><i class="ph ph-check"></i></div>
+                <span>Seg</span>
+              </div>
+              <div class="day-item" id="day-ter">
+                <div class="day-circle"><i class="ph ph-check"></i></div>
+                <span>Ter</span>
+              </div>
+              <div class="day-item" id="day-qua">
+                <div class="day-circle"><i class="ph ph-check"></i></div>
+                <span>Qua</span>
+              </div>
+              <div class="day-item" id="day-qui">
+                <div class="day-circle"><i class="ph ph-check"></i></div>
+                <span>Qui</span>
+              </div>
+              <div class="day-item" id="day-sex">
+                <div class="day-circle"><i class="ph ph-check"></i></div>
+                <span>Sex</span>
+              </div>
+              <div class="day-item" id="day-sab">
+                <div class="day-circle"><i class="ph ph-check"></i></div>
+                <span>Sáb</span>
+              </div>
+              <div class="day-item" id="day-dom">
+                <div class="day-circle"><i class="ph ph-check"></i></div>
+                <span>Dom</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Progresso Geral -->
+          <div class="stat-card progress-card">
+            <h3>Progresso Geral</h3>
+            <div class="circle-progress-wrapper">
+              <svg class="progress-ring" width="160" height="160">
+                <circle class="progress-ring-bg" stroke="#e2e8f0" stroke-width="12" fill="transparent" r="62" cx="80" cy="80" />
+                <circle id="progressCircle" class="progress-ring-fill" stroke="#003399" stroke-width="12" stroke-linecap="round" fill="transparent" r="62" cx="80" cy="80" />
+              </svg>
+              <div class="progress-percentage">
+                <span id="progressText">0%</span>
+              </div>
+            </div>
+            <p class="progress-subtext">do curso concluído</p>
+          </div>
+
+        </div>
+
+        <!-- Seção: Medalhas -->
+        <section class="badges-section">
+          <h3>Medalhas</h3>
+          <div class="badges-grid">
+            
+            <div class="badge-item locked" id="badge-1">
+              <div class="badge-icon"><i class="ph ph-musical-notes"></i></div>
+              <span>Primeiros Passos</span>
+            </div>
+
+            <div class="badge-item locked" id="badge-2">
+              <div class="badge-icon"><i class="ph ph-treble-clef"></i></div>
+              <span>Clave de Fá</span>
+            </div>
+
+            <div class="badge-item locked" id="badge-3">
+              <div class="badge-icon"><i class="ph ph-music-note-simple"></i></div>
+              <span>Nota por Nota</span>
+            </div>
+
+            <div class="badge-item locked" id="badge-4">
+              <div class="badge-icon"><i class="ph ph-lock-key"></i></div>
+              <span>Ritmo e Pulsação</span>
+            </div>
+
+            <div class="badge-item locked" id="badge-5">
+              <div class="badge-icon"><i class="ph ph-lock-key"></i></div>
+              <span>Leitura Avançada</span>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal para Recorte (Crop) da Foto de Perfil -->
+  <div id="cropModal" class="modal-overlay">
+    <div class="modal-content">
+      <h2>Ajustar Foto de Perfil</h2>
+      <div class="img-container">
+        <img id="imageToCrop" src="" alt="Imagem para recortar">
+      </div>
+      <div class="modal-actions">
+        <button id="btnCancelCrop" class="btn-secondary">Cancelar</button>
+        <button id="btnConfirmCrop" class="btn-primary">Confirmar Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Cropper.js e Script da aplicação -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+  <script src="perfil.js"></script>
+</body>
+</html>
