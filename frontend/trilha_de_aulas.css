@@ -1,0 +1,306 @@
+/* --- VARIÁVEIS DO SISTEMA (MODO CLARO ORIGINAL) --- */
+:root {
+    --bg-main: #fcfbfc;
+    --bg-sidebar: #ffffff;
+    --bg-card: #ffffff;             /* Fundo padrão das caixas das aulas */
+    --primary-blue: #002d72;
+    --active-blue: #003da5;
+    --text-dark: #1c1c1c;
+    --text-muted: #666666;
+    --text-light: #002d72;
+    --border-color: #e0e0e0;        /* Borda cinza suave original */
+    --border-active: #002d72;
+    --timeline-line: #002d72;
+    
+    /* Variáveis extras integradas da tela de configurações para compatibilidade global */
+    --accent-color: #0c1a30;
+}
+
+/* --- PALETA DE CORES OFICIAL DO MODO ESCURO (SUA REFERÊNCIA) --- */
+body.dark-mode {
+    --bg-main: #0b132b;             /* Fundo da tela escuro */
+    --bg-sidebar: #131c35;          /* Menu lateral escuro */
+    --bg-card: #1c2541;             /* Caixas das aulas escuras */
+    --text-dark: #ffffff;           /* Títulos em branco */
+    --text-muted: #94a3b8;          /* Descrições em cinza claro */
+    --text-light: #38bdf8;
+    --border-color: #2e3a59;        /* Bordas discretas escuras */
+    --border-active: #38bdf8;
+    --timeline-line: #38bdf8;       /* Linha conectora azul brilhante */
+    --primary-blue: #38bdf8;        /* Círculos e números em azul brilhante */
+    
+    /* Ajuste de compatibilidade para a tela de configurações */
+    --accent-color: #ffffff;
+}
+
+/* --- ESTILOS GLOBAIS --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container Principal do Dashboard */
+.dashboard-container {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+}
+
+/* Barra Lateral */
+.sidebar {
+    width: 260px;
+    min-width: 260px;
+    height: 100vh;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    padding: 32px 20px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-bottom: 48px;
+}
+
+/* DEPOIS (Agrupa os botões no topo e deixa o vazio apenas acima de Sair) */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espaçamento fixo ideal entre as opções do menu */
+    /* flex-grow removido para os botões ficarem juntos */
+}
+
+.sidebar-footer {
+    margin-top: auto; /* Garante que apenas o botão Sair vá para o final da tela */
+    padding-top: 32px; /* Garante uma distância mínima caso a tela seja pequena */
+}
+
+
+/* Estado Padrão e Interações dos Itens do Menu */
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-item i {
+    width: 20px;
+    font-size: 16px;
+    color: inherit; 
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+/* Área de Conteúdo Principal */
+.main-content {
+    flex-grow: 1;
+    padding: 40px 60px;
+    background-color: var(--bg-main);
+    min-height: 100vh;
+    overflow-y: auto;
+    transition: background-color 0.3s ease;
+}
+
+.content-header h1 {
+    font-size: 28px;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.content-header p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 40px;
+}
+
+/* Linha do Tempo / Lista de Exercícios */
+.lessons-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Linha vertical conectora */
+.lessons-timeline::before {
+    content: '';
+    position: absolute;
+    left: 42px;
+    top: 30px;
+    bottom: 30px;
+    width: 2px;
+    background-color: var(--timeline-line);
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.lessons-timeline:has(.timeline-item.locked)::before {
+    bottom: 120px;
+}
+
+/* Item Base da Timeline (Cards das Aulas) */
+.timeline-item {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.timeline-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Indicadores de Status (Bolas e Números) */
+.status-indicator {
+    position: relative;
+    width: 84px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.check-icon {
+    width: 26px;
+    height: 26px;
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    transition: background-color 0.3s ease;
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* Textos da Aula */
+.lesson-info {
+    flex-grow: 1;
+}
+
+.lesson-info h3 {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.lesson-info p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Seta / Cadeado Lateral */
+.lesson-action {
+    color: var(--text-muted);
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+/* --- Estados Customizados das Aulas --- */
+
+/* Item Ativo / Selecionado Atual */
+.timeline-item.active {
+    border: 2px solid var(--border-active);
+    padding: 19px 29px;
+}
+
+.timeline-item.active .status-indicator {
+    padding-left: 38px;
+}
+
+/* DEPOIS (Código corrigido e limpo) */
+.timeline-item.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* O fundo cinza deve ir apenas na bolinha do número */
+.timeline-item.locked .step-number {
+    background-color: #2e3a59; /* Cor escura sutil combinando com o modo noturno */
+    color: var(--text-muted);
+}
+
+/* Os textos apenas mudam de cor, sem ganhar fundo */
+.timeline-item.locked .lesson-info h3,
+.timeline-item.locked .lesson-info p,
+.timeline-item.locked .lesson-action {
+    background-color: transparent !important; /* Remove qualquer grifado */
+    color: var(--text-muted);
+}
+
+
+/* Configuração Básica do Menu Lateral Alternativo */
+.sidebar-menu {
+    width: 250px;
+    background-color: var(--bg-sidebar);
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin-bottom: 8px;
+}

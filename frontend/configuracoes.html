@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - Plataforma</title>
+    
+    <!-- Buscando o CSS na pasta correta -->
+    <link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+<body>
+
+    <div class="container-principal">
+        
+        <!-- Área de Conteúdo Principal (Tela Cheia) -->
+        <main class="conteudo-principal">
+            <header class="config-header">
+                <!-- BOTÃO VOLTAR -->
+                <a href="../html/trilha_de_aulas.html" class="btn-voltar-card" aria-label="Voltar">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+</a>
+
+                <h1>Configurações do Sistema</h1>
+                <p>Gerencie sua conta, preferências de privacidade e segurança.</p>
+            </header>
+
+            <div class="config-grid">
+                
+                <!-- SEÇÃO 1: GERENCIAR CONTA -->
+                <section class="config-card">
+                    <h2><i class="fa-solid fa-user-gear" aria-hidden="true"></i> Gerenciar Conta</h2>
+                    <form class="config-form" id="form-configuracoes">
+                        <div class="form-group">
+                            <label Silicon for="email">Alterar Endereço de E-mail</label>
+                            <input type="email" id="email" placeholder="Novo e-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mudar Senha Atual</label>
+                            <input type="password" id="password" placeholder="Nova senha">
+                        </div>
+                        <button type="submit" class="btn-salvar">Salvar Alterações</button>
+                    </form>
+                </section>
+
+                <!-- SEÇÃO 2: PREFERÊNCIAS (MODO NOTURNO) -->
+                <section class="config-card">
+                    <h2><i class="fa-solid fa-sliders" aria-hidden="true"></i> Preferências de Exibição</h2>
+                    <div class="toggle-control">
+                        <div class="toggle-label">
+                            <span class="title" style="display: block; font-weight: 600;">Modo Noturno</span>
+                            <span class="description">Alterne para uma interface visual escura.</span>
+                        </div>
+                        <label class="switch" for="theme-toggle">
+                            <input type="checkbox" id="theme-toggle" aria-label="Ativar modo noturno">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- SEÇÃO 3: PRIVACIDADE E COOKIES -->
+                    <section class="config-card">
+                        <h2><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Privacidade e Dados</h2>
+                        <div class="links-privacidade">
+                            <!-- Caminho para a página de Cookies -->
+                            <a href="../html/cookies.html" class="link-item" aria-label="Gerenciar preferências de cookies">
+                                <div>
+                                    <span class="title" style="display: block; font-weight: 600;">Gerenciar Cookies</span>
+                                    <span class="description">Escolha quais cookies você permite que o NoteWave utilize.</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                            </a>
+                            
+                            <!-- Caminho para a página de LGPD -->
+                            <a href="../html/privacidade.html" class="link-item" aria-label="Ler termos de uso e leis de privacidade da LGPD">
+                                <div>
+                                    <span class="title" style="display: block; font-weight: 600;">Leis de Privacidade & LGPD</span>
+                                    <span class="description">Leia nossos Termos de Uso e Políticas de Privacidade do NoteWave.</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </section>
+
+                <!-- SEÇÃO 4: SUPORTE E DÚVIDAS -->
+                <section class="config-card">
+                    <h2><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Central de Ajuda</h2>
+                    <p class="description" style="margin-bottom: 20px;">Ficou com alguma dúvida sobre o funcionamento da plataforma ou das aulas?</p>
+                    <a href="#" class="btn-suporte" aria-label="Abrir central de atendimento do suporte"><i class="fa-solid fa-headset" aria-hidden="true"></i> Tirar Dúvidas da Plataforma</a>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Script da página de configurações -->
+    <script src="../js/configuracoes.js"></script>
+</body>
+</html>

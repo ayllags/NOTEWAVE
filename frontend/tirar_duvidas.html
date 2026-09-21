@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Ajuda - NoteWave</title>
+    <!-- Font Awesome para o ícone de busca -->
+    <link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+<body>
+
+    <main class="help-container">
+        <!-- Cabeçalho -->
+        <div class="help-header">
+            <h1>Central de Ajuda</h1>
+            <p>Como podemos ajudar na sua jornada musical hoje?</p>
+        </div>
+
+        <!-- Barra de Pesquisa -->
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="helpSearchInput" placeholder="🔍 Digite sua dúvida ou palavra-chave (ex: áudio, medalhas, clave de fá)...">
+            <button id="btnSearchHelp" class="btn-primary">Buscar</button>
+        </div>
+
+        <!-- Tags de Atalho Rápido -->
+        <div class="quick-tags">
+            <span>Mais buscados:</span>
+            <button class="tag-btn" data-search="áudio">Problemas de Áudio</button>
+            <button class="tag-btn" data-search="medalhas">Como Ganhar Medalhas</button>
+            <button class="tag-btn" data-search="senha">Trocar Senha</button>
+            <button class="tag-btn" data-search="clave">Clave de Fá</button>
+        </div>
+    </main>
+
+    <script src="../js/configuracoes.js"></script>
+</body>
+</html>

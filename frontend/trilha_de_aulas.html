@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteWave - Trilha de Aulas</title>
+    <link rel="stylesheet" href="../css/trilha_de_aulas.css">
+    <!-- Ícones externos para aproximar do design original -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- Barra Lateral Esquerda -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-music text-blue"></i>
+                <span class="logo-text">NoteWave</span>
+            </div>
+            
+            <nav class="menu">
+                <a href="#" class="menu-item">
+                    <i class="fa-regular fa-user"></i> Perfil
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-graduation-cap"></i> 
+                    <span>Trilha de Aulas</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-regular fa-award"></i> Medalhas
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-chart-simple"></i> Progresso
+                </a>
+                
+
+                <a href="../html/configuracoes.html" class="menu-item">
+                    <i class="fa-solid fa-gear"></i> Configurações
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="menu-item logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sair
+                </a>
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Trilha de Aulas</h1>
+                <p>Siga o caminho e evolua passo a passo.</p>
+            </header>
+
+            <!-- Lista de Módulos / Aulas -->
+            <section class="lessons-timeline">
+                
+                <!-- Item 1: Concluído -->
+                <div class="timeline-item completed">
+                    <div class="status-indicator">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="step-number">1</div>
+                    </div>
+                    <div class="lesson-info">
+                        <h3>Boas-vindas ao NoteWave</h3>
+                        <p>Introdução à plataforma e ao curso.</p>
+                    </div>
+                    <div class="lesson-action">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+
+
+
+                <!-- Item 2: Concluído -->
+                <div class="timeline-item completed">
+                    <div class="status-indicator">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="step-number">2</div>
+                    </div>
+                    <div class="lesson-info">
+                        <h3>A Clave de Fá</h3>
+                        <p>Conheça a clave de fá e sua posição nas linhas.</p>
+                    </div>
+                    <div class="lesson-action">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+
+
+
+                <!-- Item 3: Concluído -->
+                <div class="timeline-item completed">
+                    <div class="status-indicator">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="step-number">3</div>
+                    </div>
+                    <div class="lesson-info">
+                        <h3>Notas na Clave de Fá</h3>
+                        <p>Aprenda as primeiras notas: Fá, Lá, Dó e Sol.</p>
+                    </div>
+                    <div class="lesson-action">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+
+
+
+                     <!-- Item 4: Atual / Selecionado -->
+                    <div class="timeline-item completed">
+                    <div class="status-indicator">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="step-number">4</div>
+                    </div>
+                    <div class="lesson-info">
+                        <h3>Leitura e identificação</h3>
+                        <p>Exercícios para identificar notas na clave de fá.</p>
+                    </div>
+                    <div class="lesson-action">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+
+            
+
+                <!-- Item 5: Bloqueado -->
+                <div class="timeline-item locked">
+                    <div class="status-indicator">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="step-number">5</div>
+                        <div class="timeline-content"></div>
+                    </div>
+                    <div class="lesson-info">
+                        <h3>Ritmo e Pulsação</h3>
+                        <p>Noções básicas de ritmo para leitura musical.</p>
+                    </div>
+                    <div class="lesson-action">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/trilha_de_aulas.js"></script>
+</body>
+</html>
