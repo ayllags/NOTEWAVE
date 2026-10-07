@@ -196,8 +196,18 @@ body {
 .toggle-password {
   cursor: pointer;
   color: var(--placeholder-color) !important;
-  margin-right: 0 !important;
+  background: transparent;
+  border: 0;
   margin-left: 10px;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-password i {
+  margin: 0;
+  color: inherit;
 }
 
 /* ================================
@@ -321,4 +331,9 @@ body {
   .brand-section {
     margin-bottom: 10px;
   }
+}
+
+/* O <picture> do logo não deve interferir no layout flex */
+.logo-image-wrapper picture {
+  display: contents;
 }

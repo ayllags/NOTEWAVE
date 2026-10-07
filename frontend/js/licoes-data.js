@@ -51,7 +51,7 @@ const licoesDeNotas = [
     dica: " Encontre o terceiro vão aberto entre as linhas, localizado na metade superior.",
     notaCorreta: "Mi",
     classePosicao: "position-Mi2",
-    audioSrc: "../audio/nota-Mi2.mp4",
+    audioSrc: "../audio/nota-Mi2.mp3",
     opcoes: ["Ré", "Mi", "Fá", "Sol"]
   },
   {
@@ -96,7 +96,7 @@ const licoesDeNotas = [
     dica: " Esta nota é a ponte entre dois mundos. Ela usa uma linha suplementar bem acima da pauta e conecta com a Clave de Sol.",
     notaCorreta: "Dó",
     classePosicao: "position-DoCentral",
-    audioSrc: "../audio/nota-DoCentral.mp3",
+    audioSrc: "../audio/c4.mp3",
     opcoes: ["Lá", "Si", "Dó", "Ré"]
   },
   {

@@ -215,3 +215,9 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* O <picture> do logo não deve interferir no layout flex */
+.logo-area picture,
+.logo-card-glow picture {
+  display: contents;
+}

@@ -1,1 +1,6 @@
-/node_modules
+node_modules/
+
+# Variáveis de ambiente (manter .env.example rastreável)
+.env
+.env.*
+!.env.example

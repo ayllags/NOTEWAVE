@@ -20,16 +20,15 @@ function switchTab(tabName) {
 // ================================
 // MOSTRAR / OCULTAR SENHA
 // ================================
-function togglePasswordVisibility(inputId, icon) {
+function togglePasswordVisibility(inputId, button) {
     const input = document.getElementById(inputId);
-
-    if (input.type === "password") {
-        input.type = "text";
-        icon.classList.replace("ph-eye", "ph-eye-slash");
-    } else {
-        input.type = "password";
-        icon.classList.replace("ph-eye-slash", "ph-eye");
-    }
+    const visible = input.type === "password";
+    input.type = visible ? "text" : "password";
+    button.setAttribute("aria-pressed", String(visible));
+    button.setAttribute("aria-label", visible ? "Ocultar senha" : "Mostrar senha");
+    const icon = button.querySelector("i");
+    icon.classList.toggle("ph-eye", !visible);
+    icon.classList.toggle("ph-eye-slash", visible);
 }
 
 // ================================
@@ -48,12 +47,13 @@ function closeForgotModal() {
 // CHECAR "LEMBRAR DE MIM" AO CARREGAR
 // ================================
 document.addEventListener("DOMContentLoaded", () => {
-    const savedEmail = localStorage.getItem("remember_email");
-    const savedPass = localStorage.getItem("remember_pass");
+    // Limpa a senha salva por versões antigas (senha nunca deve ficar no navegador)
+    localStorage.removeItem("remember_pass");
 
-    if (savedEmail && savedPass) {
+    const savedEmail = localStorage.getItem("remember_email");
+
+    if (savedEmail) {
         document.getElementById("loginEmail").value = savedEmail;
-        document.getElementById("loginPassword").value = savedPass;
         document.getElementById("rememberMe").checked = true;
     }
 });
@@ -75,7 +75,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     }
 
     try {
-        const response = await fetch("http://localhost:5000/api/register", {
+        const response = await fetch(`${window.NOTEWAVE_API}/api/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, email, password })
@@ -112,7 +112,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
     const rememberMe = document.getElementById("rememberMe").checked;
 
     try {
-        const response = await fetch("http://localhost:5000/api/login", {
+        const response = await fetch(`${window.NOTEWAVE_API}/api/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
@@ -127,10 +127,8 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
         if (rememberMe) {
             localStorage.setItem("remember_email", email);
-            localStorage.setItem("remember_pass", password);
         } else {
             localStorage.removeItem("remember_email");
-            localStorage.removeItem("remember_pass");
         }
 
         localStorage.setItem("noteWave_user", data.username || data.user?.username);
@@ -147,30 +145,12 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 // ================================
 // RECUPERAÇÃO DE SENHA
 // ================================
-document.getElementById("forgotForm").addEventListener("submit", async function(event) {
+document.getElementById("forgotForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const email = document.getElementById("forgotEmail").value.trim();
-
-    try {
-        const response = await fetch("http://localhost:5000/api/recuperar-senha", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email })
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            alert(data.message || data.error);
-            return;
-        }
-
-        alert(data.message + (data.tempPassword ? `\n\nSua nova senha temporária: ${data.tempPassword}` : ""));
-        closeForgotModal();
-
-    } catch (error) {
-        console.error(error);
-        alert("Não foi possível conectar ao servidor.");
-    }
+    // A recuperação de senha ainda não tem endpoint no backend.
+    // Quando for implementada, deve enviar um link com token expirável por e-mail
+    // e nunca devolver a senha na resposta.
+    alert("A recuperação de senha ainda está em desenvolvimento. Em breve você poderá redefinir sua senha por e-mail.");
+    closeForgotModal();
 });
