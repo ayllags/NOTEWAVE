@@ -1,104 +1,243 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exercício: Leitura de Notas</title>
-<link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício: Leitura de Notas</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-<div class="app-container">
-<!-- Cabeçalho do aplicativo -->
-<header class="app-header">
-<a href="../html/trilha_de_aulas.html" class="btn-back" style="text-decoration: none; display: inline-block;">← Voltar para a trilha</a>
-<button class="btn-help" id="btnHelp">💡 Dicas</button>
-</header>
- 
+    <div class="app-container">
+        <!-- Cabeçalho do aplicativo -->
+        <header class="app-header">
+            <a href="../html/trilha_de_aulas.html" class="btn-back"
+                style="text-decoration: none; display: inline-block;">← Voltar para a trilha</a>
+            <button class="btn-help" id="btnHelp">💡 Dicas</button>
+        </header>
+
         <main class="main-content">
-<!-- Seção principal do exercício -->
-<section class="exercise-section">
-<!-- Identificação dinâmica -->
-<div class="lesson-number" id="lessonNumber">Lição...</div>
-<h1 class="title" id="lessonTitle">Clave de Fá</h1>
-<p class="instruction">Ouça o áudio e identifique a nota correspondente.</p>
-<!-- Caixa de dica reflexiva -->
-<div id="helpBox" class="help-box" style="display: none;">
-    💡 <strong>Dica:</strong> <span id="helpText"></span>
-</div>
- 
- 
- 
+            <!-- Seção principal do exercício -->
+            <section class="exercise-section">
+                <!-- Identificação dinâmica -->
+                <div class="lesson-number" id="lessonNumber">
+                    <div class="../licoes-data"></div>
+                </div>
+                <h1 class="title" id="lessonTitle">Clave de Fá</h1>
+                <p class="instruction">Ouça o áudio e identifique a nota correspondente.</p>
+                <!-- Caixa de dica reflexiva -->
+                <div id="helpBox" class="help-box" style="display: none;">
+                    💡 <strong>Dica:</strong> <span id="helpText"></span>
+                </div>
+
+
+
                 <!-- Pentagrama musical estrutural -->
-<div class="staff-container">
-<div class="clef">𝄢</div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line"></div>
-<div id="noteElement" class="note"></div>
-</div>
- 
+                <div class="staff-container">
+                    <div class="clef">𝄢</div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div id="noteElement" class="note"></div>
+                </div>
+
                 <!-- Player de áudio integrado -->
-<div class="audio-player">
-<button class="play-btn" id="playBtn"><span class="play-icon">▶</span></button>
-<div class="audio-wave">
-<div class="wave-line"></div>
-</div>
-<span class="audio-time" id="audioTime">0:00 / 0:00</span>
-<audio id="audioTrack" src=""></audio>
-</div>
- 
+                <div class="audio-player">
+                    <button class="play-btn" id="playBtn"><span class="play-icon">▶</span></button>
+                    <div class="audio-wave">
+                        <div class="wave-line"></div>
+                    </div>
+                    <span class="audio-time" id="audioTime">0:00 / 0:00</span>
+                    <audio id="audioTrack" src=""></audio>
+                </div>
+
                 <!-- Botões puros, o clique será injetado pelo JS -->
-<div class="options-container" id="optionsContainer">
-<button class="option-btn"></button>
-<button class="option-btn"></button>
-<button class="option-btn"></button>
-<button class="option-btn"></button>
-</div>
- 
+                <div class="options-container" id="optionsContainer">
+                    <button class="option-btn"></button>
+                    <button class="option-btn"></button>
+                    <button class="option-btn"></button>
+                    <button class="option-btn"></button>
+                </div>
+
                 <!-- Painel de Feedback dinâmico -->
-<div class="feedback-panel" id="feedbackPanel" style="display: none;">
-<div class="feedback-text">
-<span class="feedback-icon" id="feedbackIcon"></span>
-<div>
-<strong id="feedbackTitle"></strong>
-<p id="feedbackMessage"></p>
-</div>
-</div>
-<button class="next-btn" id="actionBtn">Próxima</button>
-</div>
-</section>
- 
+                <div class="feedback-panel" id="feedbackPanel" style="display: none;">
+                    <div class="feedback-text">
+                        <span class="feedback-icon" id="feedbackIcon"></span>
+                        <div>
+                            <strong id="feedbackTitle"></strong>
+                            <p id="feedbackMessage"></p>
+                        </div>
+                    </div>
+                    <button class="next-btn" id="actionBtn">Próxima</button>
+                </div>
+            </section>
+
             <!-- Barra lateral de desempenho -->
-<aside class="performance-section">
-<h2 class="perf-title">Desempenho</h2>
-<div class="stat-group">
-<span class="stat-label">Acertos</span>
-<span class="stat-value success-text" id="correctCount">0</span>
-</div>
- 
+            <aside class="performance-section">
+                <h2 class="perf-title">Desempenho</h2>
                 <div class="stat-group">
-<span class="stat-label">Erros</span>
-<span class="stat-value danger-text" id="wrongCount">0</span>
-</div>
- 
+                    <span class="stat-label">Acertos</span>
+                    <span class="stat-value success-text" id="correctCount">0</span>
+                </div>
+
+                <div class="stat-group">
+                    <span class="stat-label">Erros</span>
+                    <span class="stat-value danger-text" id="wrongCount">0</span>
+                </div>
+
                 <div class="progress-container">
-<div class="progress-ring" id="progressRing" style="--percent: 0;">
-<div class="progress-inner">
-<span class="percentage-value" id="percentageValue">0%</span>
-</div>
-</div>
-<p class="progress-label">de aproveitamento</p>
-<button id="resetBtn">Reiniciar Progresso</button>
-</div>
-</aside>
-</main>
-</div>
+                    <div class="progress-ring" id="progressRing" style="--percent: 0;">
+                        <div class="progress-inner">
+                            <span class="percentage-value" id="percentageValue">0%</span>
+                        </div>
+                    </div>
+                    <p class="progress-label">de aproveitamento</p>
+                    <button id="resetBtn">Reiniciar Progresso</button>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- =====================================================
+     NOTEWAVE — TELA FINAL DA TRILHA
+     Adicionar antes dos scripts no final do body.
+     ===================================================== -->
+
  
+    <section class="final-ocean" id="finalOcean" style="display: none;" aria-hidden="true" aria-labelledby="oceanResultTitle">
+ 
+        <!-- Fundo do oceano -->
+        <div class="ocean-background" aria-hidden="true"></div>
+
+        <!-- Areia que aparece quando as ondas recuam -->
+        <div class="ocean-sand" aria-hidden="true"></div>
+
+        <!-- Ondas animadas -->
+        <div class="ocean-wave ocean-wave--deep" aria-hidden="true"></div>
+
+        <div class="ocean-wave ocean-wave--middle" aria-hidden="true"></div>
+
+        <div class="ocean-wave ocean-wave--foam" aria-hidden="true"></div>
+
+        <!-- Mascote musical surfando -->
+        <div class="surfing-note" aria-hidden="true">
+            <img src="../imagem/notinha02.jpeg" alt="">
+        </div>
+
+        <!-- Estrelas conquistadas espalhadas pela areia -->
+        <div class="beach-stars" id="beachStars" aria-hidden="true"></div>
+
+        <!-- Resultado final -->
+        <div class="ocean-result" id="oceanResult" role="group" aria-describedby="oceanResultMessage">
+            <h2 id="oceanResultTitle">
+                Fim da trilha!
+            </h2>
+
+            <p id="oceanResultMessage">
+                Você chegou ao final da sua jornada musical!
+            </p>
+
+            <!-- Porcentagem da última lição -->
+            <div class="result-percentage" id="finalPercentage" aria-label="Aproveitamento na última lição">
+                0%
+            </div>
+
+            <!-- Estrelas correspondentes ao resultado -->
+            <div class="result-stars" id="resultStars" role="img" aria-label="Nenhuma estrela conquistada">
+                <span class="result-star" data-star="1">★</span>
+                <span class="result-star" data-star="2">★</span>
+                <span class="result-star" data-star="3">★</span>
+            </div>
+
+            <!-- Mensagem específica para cada resultado -->
+            <p id="starResultMessage">
+                Continue praticando! Cada tentativa faz parte da aprendizagem.
+            </p>
+
+            <!-- Ações exibidas conforme o desempenho -->
+            <div class="ocean-actions" id="oceanActions">
+
+                <!-- Exibido para resultados de 0% a 49% -->
+                <button type="button" class="ocean-button" id="retryLessonBtn">
+                    ↻ Refazer
+                </button>
+
+                <!-- Exibido para resultados de 50% a 79% -->
+                <button type="button" class="ocean-button ocean-button--secondary" id="skipLessonBtn" hidden>
+                    Pular →
+                </button>
+
+                <!-- Confirmação de pular -->
+                <div class="skip-confirmation" id="skipConfirmation" hidden>
+                    <strong>Tem certeza que deseja pular?</strong>
+                    Você está tão perto de conseguir sua medalha!
+
+                    <div class="ocean-actions">
+                        <button type="button" class="ocean-button" id="confirmSkipBtn">
+                            Sim, quero pular
+                        </button>
+
+                        <button type="button" class="ocean-button ocean-button--secondary" id="cancelSkipBtn">
+                            Continuar tentando
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Exibido para resultados de 80% a 100% -->
+                <button type="button" class="ocean-button ocean-button--medal" id="receiveMedalBtn" hidden>
+                    🏅 RECEBER MEDALHA!
+                </button>
+
+                <!-- Medalha revelada após o resgate -->
+                <div class="medal-reveal" id="medalReveal" hidden aria-live="polite">
+                    <div class="medal-emblem" aria-hidden="true">
+                        🏅
+                    </div>
+
+                    <p>Medalha conquistada!</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+
+         TELAS DE RECOMPENSA (ESTILO DUOLINGO)
+
+         ===================================================== -->
+<!-- Tela 1: Mostra as estrelas conquistadas -->
+<div id="telaEstrelas" class="duo-tela" style="display: none;">
+    <h2 class="duo-titulo">Fim da Lição!</h2>
+    <div class="duo-estrelas-container" id="duoEstrelasAnimadas">
+    <!-- As estrelas serão injetadas aqui pelo JS -->
+    </div>
+    <p class="duo-mensagem">Você mandou muito bem!</p>
+    <button class="duo-btn" id="btnProximoEstrelas">Continuar</button>
+    </div>
+     
+        <!-- Tela 2: Revela a medalha conquistada -->
+    <div id="telaMedalha" class="duo-tela" style="display: none;">
+    <h2 class="duo-titulo-medalha">Nova Conquista!</h2>
+    <div class="duo-medalha-brilho">
+    <div class="icone-medalha-gigante">
+    <!-- SVG da Clave de Fá igual ao da página de medalhas -->
+    <svg viewBox="0 0 100 100" style="width: 80px; height: 80px;">
+    <path fill="currentColor" d="M35,25 C45,20 62,24 62,42 C62,56 50,66 42,75 L36,75 C44,65 54,55 54,43 C54,34 43,30 36,33 L35,25 Z M70,33 A 4 4 0 1 1 70,32.9 Z M70,47 A 4 4 0 1 1 70,46.9 Z"/>
+    </svg>
+    </div>
+    </div>
+    <p class="duo-mensagem-destaque">Medalha Clave de Fá</p>
+    <button class="duo-btn" id="btnIrParaMedalhas">Continuar</button>
+    </div>
+     
+
     <!-- Scripts modulares -->
     <script src="../js/licoes-data.js"></script>
     <script src="../js/atividades-nota.js"></script>
-    </body>
+</body>
+
 </html>
- 

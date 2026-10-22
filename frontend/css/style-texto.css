@@ -144,6 +144,59 @@
     z-index: 10;
 }
 
+/* Cria a linha extra para as notas que saem do pentagrama */
+.mini-staff .note::after {
+    content: '';
+    position: absolute;
+    background: #1a202c; /* Mesma cor da nota */
+    height: 2px;
+    width: 36px;
+    left: -7px;
+    top: 7px; /* Centraliza a linha no meio da nota */
+    display: none; /* Fica escondida por padrão */
+    transform: rotate(20deg); /* Desfaz a inclinação da nota para a linha ficar reta */
+}
+
+/* Mostra a linha CORTANDO o meio do Dó Central e do Mi Grave */
+.position-Do3::after, 
+.position-Mi1::after {
+    display: block;
+}
+
+/* Mostra a linha ACIMA do Ré Grave (já que ele fica no espaço) */
+.position-Re1::after {
+    display: block;
+    top: -13px; 
+}
+
+/* Criação da linha suplementar base */
+.mini-staff .note::before {
+    content: '';
+    position: absolute;
+    background: #1a202c; /* Mesma cor da nota */
+    height: 1.5px;
+    width: 34px;
+    left: -6px;
+    display: none; /* Fica oculta por padrão */
+    /* Desfaz a rotação de -20deg da nota para a linha ficar perfeitamente reta */
+    transform: rotate(20deg); 
+}
+
+/* Mostra a linha cortando o meio da nota para o Dó Central e Mi Grave */
+.position-Do3::before, 
+.position-Mi1::before {
+    display: block;
+    top: 7px; /* Exatamente o centro vertical da nota */
+}
+
+/* Mostra a linha ACIMA da nota para o Ré Grave (simulando a linha do Mi) */
+.position-Re1::before {
+    display: block;
+    top: -13px; 
+    /* Pequeno ajuste de eixo por causa da contra-rotação */
+    transform: rotate(20deg) translateX(4px);
+}
+
 /* Linhas do pentagrama */
 .mini-staff .line {
     height: 1px;
@@ -152,11 +205,13 @@
     width: 100%;
 }
 
+/* Ajuste do tamanho e alinhamento da Clave de Fá */
 .mini-staff .clef {
     position: absolute;
     left: 10px;
-    top: 15px;
-    font-size: 45px;
+    top: 2px; /* Ajuste para alinhar os dois pontos na linha certa */
+    font-size: 55px; /* Tamanho menor e mais adequado */
+    line-height: 1;
     user-select: none;
 }
 
@@ -179,27 +234,22 @@
 }
 
 /* =======================================================
-   4. CALIBRAÇÃO DE TODAS AS POSIÇÕES (CLAVE DE FÁ)
+   CALIBRAÇÃO DE TODAS AS POSIÇÕES (CLAVE DE FÁ)
 ======================================================= */
-/* Notas Graves (Abaixo das Linhas) */
-.position-Re1 { top: 121px; }  
-.position-Mi1 { top: 111px; }  
-.position-Fa1 { top: 101px; }  
-
-/* Notas Internas (Nas Linhas e Espaços) */
-.position-Sol1 { top: 91px; }  /* 1ª Linha */
-.position-La1 { top: 81px; }   /* 1º Espaço */
-.position-Si1 { top: 71px; }   /* 2ª Linha */
-.position-Do2 { top: 61px; }   /* 2º Espaço */
-.position-Re2 { top: 51px; }   /* 3ª Linha */
-.position-Mi2 { top: 41px; }   /* 3º Espaço */
-.position-Fa2 { top: 31px; }   /* 4ª Linha (Âncora) */
-.position-Sol2 { top: 21px; }  /* 4º Espaço */
-.position-La2 { top: 11px; }   /* 5ª Linha */
-
-/* Notas Agudas (Acima das Linhas) */
-.position-Si2 { top: 1px; }    
-.position-Do3 { top: -9px; }   /* Dó Central */
+.position-Re1 { top: 122px; }  
+.position-Mi1 { top: 112px; }  
+.position-Fa1 { top: 102px; }  
+.position-Sol1 { top: 92px; }  
+.position-La1 { top: 82px; }   
+.position-Si1 { top: 72px; }   
+.position-Do2 { top: 62px; }   
+.position-Re2 { top: 52px; }   
+.position-Mi2 { top: 42px; }   
+.position-Fa2 { top: 32px; }   
+.position-Sol2 { top: 22px; }  
+.position-La2 { top: 12px; }   
+.position-Si2 { top: 2px; }    
+.position-Do3 { top: -8px; }
 
 /* =======================================================
    5. COMPOSIÇÃO DO LAYOUT E GRIDS

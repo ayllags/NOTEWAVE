@@ -24,11 +24,15 @@
     <!-- Sidebar / Menu Lateral -->
     <aside class="sidebar">
       <div class="sidebar-header">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="#002b7a" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 3V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17C6 19.21 7.79 21 10 21C12.21 21 14 19.21 14 17V7H18V3H12Z"/>
-        </svg>
-        <span class="logo-text">NoteWave</span>
+        <!-- O link envolve a imagem e o texto juntos -->
+        <a href="../html/perfil.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+          <!-- Sua imagem substituindo o SVG antigo -->
+          <img src="../imagem/nota.png" alt="Logo NoteWave" style="width: 80px; height: 80px; object-fit: contain;">
+          <span class="logo-text" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px; font-weight: 700; letter-spacing: 1px; color: #002b7a; text-transform: uppercase;">NoteWave</span>
+        </a>
       </div>
+
+
 
       <nav class="sidebar-nav">
         <a href="../html/perfil.html" class="nav-item active">
@@ -42,10 +46,6 @@
         <a href="../html/medalhas.html" class="nav-item">
           <i class="ph ph-medal"></i>
           <span>Medalhas</span>
-        </a>
-        <a href="" class="nav-item">
-          <i class="ph ph-chart-bar"></i>
-          <span>Progresso</span>
         </a>
         <a href="../html/configuracoes.html" class="nav-item">
           <i class="ph ph-gear"></i>
@@ -68,9 +68,13 @@
         <!-- Cabeçalho do Usuário -->
         <header class="profile-header">
           <div class="welcome-box">
-            <h1>Olá, <span id="userName">Usuário</span>! 👋</h1>
+            <h1 style="display: inline-flex; align-items: center; gap: 8px; margin: 0;">
+              Olá, <span id="userName">Usuário</span>! 
+              <img src="../imagem/livros.png" alt="Boas-vindas" style="width: 60px; height: 60px; object-fit: contain;">
+            </h1>
             <p>Continue sua jornada musical.</p>
           </div>
+
 
           <!-- Componente de Avatar / Foto -->
           <div class="avatar-container" onclick="document.getElementById('avatarInput').click();" title="Clique para alterar a foto">
