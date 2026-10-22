@@ -12,10 +12,14 @@
 
     <a href="perfil.html" class="btn-voltar">← Voltar para o Perfil</a>
 
-    <header class="page-header">
-        <h1>🎵 Suas Conquistas Musicais</h1>
-        <p>Acompanhe todas as medalhas conquistadas durante sua jornada no NoteWave.</p>
-    </header>
+    <header class="page-header"> 
+        <h1>
+          <img src="../imagem/2.png" alt="Ícone de Música" style="height: 2em; vertical-align: middle;"> 
+          Suas Conquistas Musicais
+        </h1> 
+        <p>Acompanhe todas as medalhas conquistadas durante sua jornada no NoteWave.</p> 
+      </header>
+      
 
     <div class="grid-medalhas">
 
@@ -155,20 +159,20 @@
             if(status === "desbloqueado"){
                 conteudoModal.innerHTML = `
                     <div class="modal-header">
-                        <span class="tag-sucesso">🎵 Conquista Desbloqueada</span>
+                        <span class="tag-sucesso"> Conquista Desbloqueada</span>
                         <h2>${titulo}</h2>
                     </div>
                     <div class="estrelas">⭐ ⭐ ⭐</div>
                     <div class="modal-secao">
-                        <h3>🏆 O que você conquistou?</h3>
+                        <h3> O que você conquistou?</h3>
                         <p>${card.dataset.conquistou || ''}</p>
                     </div>
                     <div class="modal-secao">
-                        <h3>📖 O que você aprendeu?</h3>
+                        <h3> O que você aprendeu?</h3>
                         <p>${card.dataset.aprendeu || ''}</p>
                     </div>
                     <div class="modal-secao incentivo">
-                        <p>💙 <strong>${card.dataset.incentivo || ''}</strong></p>
+                        <p> <strong>${card.dataset.incentivo || ''}</strong></p>
                     </div>
                 `;
             } else {
