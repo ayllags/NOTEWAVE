@@ -1,0 +1,263 @@
+/* Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    display: inline-block;
+    text-decoration: none;
+    color: #0d2c6c;
+    font-weight: 600;
+    margin-bottom: 30px;
+    transition: transform 0.2s;
+}
+
+.btn-voltar:hover {
+    transform: translateX(-5px);
+}
+
+.page-header h1 {
+    color: #0d2c6c;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #64748b;
+    margin-bottom: 40px;
+}
+
+/* Grid de Medalhas alinhadas lado a lado */
+.grid-medalhas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: flex-start;
+}
+
+.card-medalha {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px 15px;
+    text-align: center;
+    width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Tamanho Ampliado do Círculo da Medalha */
+.icone-medalha {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Tamanho do desenho interno */
+.icone-medalha svg {
+    display: block;
+}
+
+/* Estilo das Medalhas DESBLOQUEADAS (Azul Escuro com Aro Duplo) */
+.card-medalha.ativa .icone-medalha {
+    background-color: #0d2c6c;
+    color: #ffffff;
+    border: 4px solid #0d2c6c;
+    box-shadow: inset 0 0 0 2.5px #ffffff; 
+}
+
+.card-medalha.ativa h3 {
+    color: #1e293b;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.card-medalha.ativa .status {
+    color: #10b981;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Estilo das Medalhas BLOQUEADAS (Cinza Claro) */
+.card-medalha.bloqueada .icone-medalha {
+    background-color: #f1f5f9;
+    color: #cbd5e1;
+    border: 4px solid #f1f5f9;
+    box-shadow: inset 0 0 0 2.5px #ffffff; 
+}
+
+.card-medalha.bloqueada h3 {
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.card-medalha.bloqueada .status {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+}
+
+/* Efeito de passar o mouse nas medalhas DESBLOQUEADAS */
+.card-medalha.ativa:hover {
+    transform: translateY(-8px);
+    border-color: #007bff; 
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4), 
+                0 0 15px rgba(0, 123, 255, 0.2); 
+}
+
+.card-medalha.bloqueada:hover {
+    transform: translateY(-4px);
+}
+
+/* ==========================================
+   ESTILIZAÇÃO DO MODAL FLUTUANTE 
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.visivel {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-balao {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visivel .modal-balao {
+    transform: translateY(0);
+}
+
+.btn-fechar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #f1f5f9;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-fechar:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.modal-header {
+    margin-bottom: 20px;
+}
+
+.tag-sucesso {
+    display: inline-block;
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.tag-bloqueado {
+    display: inline-block;
+    background-color: #fee2e2;
+    color: #991b1b;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.modal-header h2 {
+    color: #0d2c6c;
+    font-size: 1.75rem;
+}
+
+.estrelas {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: #ffd43b;
+}
+
+.estrelas.bloqueadas {
+    color: #cbd5e1;
+}
+
+.modal-secao {
+    margin-bottom: 20px;
+}
+
+.modal-secao h3 {
+    font-size: 1rem;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.modal-secao p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.modal-secao.incentivo {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #0d2c6c;
+}

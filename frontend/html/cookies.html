@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Cookies - NoteWave</title>
+    
+    <!-- CSS Principal do projeto -->
+    <link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+<body>
+
+    <div class="container-principal">
+        <main class="conteudo-principal">
+            <header class="config-header">
+                <!-- 1. QUADRADO DE CIMA: BOTÃO VOLTAR COM SETA SVG -->
+                <a href="../html/configuracoes.html" class="btn-voltar-card" aria-label="Voltar para configurações">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </a>
+                
+                <h1>Preferências de Cookies</h1>
+                <p>Gerencie como o NoteWave utiliza seus dados de navegação.</p>
+            </header>
+
+            <div class="config-grid">
+                <section class="config-card" style="grid-column: 1 / -1;">
+                    <!-- 2. QUADRADO DE BAIXO: TÍTULO COM EMOJI DE COOKIE -->
+                    <h2>🍪 Uso de Cookies no NoteWave</h2>
+                    
+                    <p class="description" style="font-size: 15px; margin-bottom: 20px;">
+                        Utilizamos cookies para manter sua sessão de estudo ativa, salvar suas preferências visuais e registrar seu progresso (pontuação, medalhas e constância).
+                    </p>
+
+                    <!-- Opção 1: Essenciais -->
+                    <div class="toggle-control" style="margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px;">
+                        <div class="toggle-label">
+                            <span style="display: block; font-weight: 600;">Cookies Essenciais</span>
+                            <span class="description">Necessários para fazer login e manter o site funcionando.</span>
+                        </div>
+                        <span style="font-size: 13px; color: var(--text-secondary); font-weight: 600;">Sempre Ativo</span>
+                    </div>
+
+                    <!-- Opção 2: Desempenho e Gamificação -->
+                    <div class="toggle-control">
+                        <div class="toggle-label">
+                            <span style="display: block; font-weight: 600;">Cookies de Progresso & Métricas</span>
+                            <span class="description">Permitem salvar o histórico de aulas, acertos, erros e dias seguidos.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script do Modo Escuro -->
+    <script src="../js/configuracoes.js"></script>
+</body>
+</html>
